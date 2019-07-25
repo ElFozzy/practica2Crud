@@ -1,0 +1,25 @@
+extends template.pug
+
+block content
+    table(class="table")
+        thead
+            tr
+                th(scope="col") Nombre
+                th(scope="col") Apellidos
+                th(scope="col") Dirección
+                th(scope="col") Sexo
+                th(scope="col") Foto
+                th(scope="col", colspan="2") Acciones
+        tbody
+            each persona in personas
+                tr
+                    td= persona.nombre
+                    td= persona.apellidos
+                    td= persona.direccion
+                    td= persona.sexo
+                    td
+                        img(src="/img/"+persona.foto, width="50px")
+                    td
+                        a(href="/Editar/"+persona._id) Editar
+                    td
+                        a(href="/Eliminar/"+persona._id) Eliminar
